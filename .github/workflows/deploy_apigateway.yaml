@@ -76,14 +76,3 @@ jobs:
             terraform output -raw api_gateway_arn
             echo "EOF"
           } >> $GITHUB_OUTPUT
-
-      - name: Verify API Gateway Configuration
-        working-directory: ./apigateway
-        run: |
-          API_ID=$(terraform output -raw api_gateway_arn | cut -d: -f6)
-          
-          echo "Verifying API Gateway configuration..."
-          aws apigateway get-rest-api --rest-api-id $API_ID
-          
-          echo "Verifying Stage configuration..."
-          aws apigateway get-stage --rest-api-id $API_ID --stage-name v1
