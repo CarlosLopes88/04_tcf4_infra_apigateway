@@ -13,7 +13,7 @@ resource "aws_api_gateway_authorizer" "cognito" {
   name          = "CognitoUserPoolAuthorizer"
   type          = "COGNITO_USER_POOLS"
   rest_api_id   = aws_api_gateway_rest_api.order_system_api.id
-  provider_arns = ["arn:aws:cognito-idp:us-east-1:740588470221:userpool/us-east-1_C5plF5Dop"]
+  provider_arns = ["arn:aws:cognito-idp:us-east-1:740588470221:userpool/us-east-1_gaL5VNSau"]
   identity_source = "method.request.header.Authorization"
 }
 
